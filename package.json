@@ -1,0 +1,32 @@
+{
+  "name": "hacker-news",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "10.16.0"
+  },
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node ./server/build/index.js",
+    "heroku-prebuild": "cd server/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+    "heroku-postbuild": "cd client/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goginim/Hacker-News.git"
+  },
+  "author": "David Kim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goginim/Hacker-News/issues"
+  },
+  "homepage": "https://github.com/goginim/Hacker-News#readme",
+  "cacheDirectories": [
+    "node_modules",
+    "client/node_modules",
+    "server/node_modules"
+  ],
+  "dependencies": {
+    "cross-env": "^5.2.0"
+  }
+}
