@@ -3,13 +3,17 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { ArticleActions } from '../store/actionCreators';
 
-const App = props => {
+const App = ({ article }) => {
   useEffect(() => {
     ArticleActions.get_articles();
-    ArticleActions.get_article('20507186');
   }, []);
 
-  return <div />;
+  const renderArticleList = () => {
+    console.log(article);
+    return article.articleList.map(article => <li>{article.title}</li>);
+  };
+
+  return <div>{!article.loading && renderArticleList()}</div>;
 };
 
 export default connect(({ article }) => ({
