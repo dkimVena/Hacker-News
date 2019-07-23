@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './Root';
-import serviceWorker from './serviceWorker';
+import * as serviceWorker from './serviceWorker';
+import './styles/main.scss';
 
 ReactDOM.render(<Root />, document.getElementById('root'));
-serviceWorker();
+
+serviceWorker.unregister();
