@@ -7,4 +7,6 @@ const controller = require('./controller');
  */
 router.get('/', controller.getArticles);
 
+router.get('/:id', controller.getArticleDetail);
+
 module.exports = router;
