@@ -1,0 +1,130 @@
+.recent-articles {
+  .article-detail-title {
+    font-family: FuturaBT-Heavy, sans-serif;
+    font-size: inherit;
+    font-weight: 100;
+    font-size: 2.4rem;
+    letter-spacing: -0.03em;
+    line-height: 3.2rem;
+    margin: 1rem 0 2rem;
+  }
+
+  @media (min-width: 1440px) {
+    .article-detail-title {
+      font-size: 2.7rem;
+      line-height: 4rem;
+
+      a {
+        color: #272c2f;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .article-detail {
+    background: #fff;
+    clear: both;
+    line-height: 2.8rem;
+    padding: 3rem 3rem 1.5rem;
+
+    p {
+      font-size: 1.8rem;
+      margin: 1.8rem 0;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .article-detail {
+      line-height: 3rem;
+      padding: 5rem 6rem 3.5rem;
+    }
+  }
+
+  .featured-article-detail {
+    background: hsla(0, 0%, 100%, 0.85);
+    margin: -5px 0 0;
+  }
+
+  @media (min-width: 620px) {
+    .featured-article-detail {
+      bottom: 6rem;
+      margin: 0;
+      position: absolute;
+      right: 0;
+      width: 58rem;
+    }
+  }
+  .article-type {
+    font-family: FuturaBT-Heavy, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 100;
+    letter-spacing: 2px;
+    opacity: 0.4;
+    text-transform: uppercase;
+  }
+
+  &-article {
+    // width: calc(50% - 1rem);
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 620px) {
+    &-article {
+      width: 100%;
+    }
+  }
+
+  &-article img {
+    float: left;
+    width: 100%;
+  }
+
+  &-article a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  &-article a:hover .post-excerpt-title {
+    text-decoration: underline;
+  }
+
+  .recent-article-image-container {
+    display: block;
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 60%;
+    position: relative;
+    width: 100%;
+    background: #fff;
+  }
+
+  .block-with-text {
+    overflow: hidden;
+    position: relative;
+    line-height: 1.2em;
+    max-height: 11.5em;
+    text-align: justify;
+    margin-right: -1em;
+    padding-right: 1em;
+  }
+  .block-with-text:before {
+    content: '...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  .block-with-text:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    background: white;
+  }
+}

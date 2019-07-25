@@ -30,10 +30,12 @@
 *,
 *::before,
 *::after {
+  -webkit-box-sizing: inherit;
   box-sizing: inherit;
 }
 
 html {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-size: 62.5%;
 
@@ -43,9 +45,36 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
-  line-height: 1.6;
+  font-family: FuturaBT-Book, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeSpeed;
+  background-color: #f9f8f6;
+}
 
-  min-height: 100vh;
+ul,
+li,
+ol {
+  list-style: none;
+}
+
+.button {
+  font-family: FuturaBT-Book, sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  background: #ffb21a;
+  border-radius: 52px;
+  color: #fff;
+  padding: 16px 20px 15px;
+  text-decoration: none;
+  -webkit-transition: background 80ms linear, opacity 1s linear;
+  transition: background 80ms linear, opacity 1s linear;
+  white-space: nowrap;
+}
+
+.button:hover {
+  background: #faa600;
+}
+
+.button:focus {
+  outline: 0;
 }

@@ -1,0 +1,28 @@
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1490px;
+  padding-left: 25px;
+  padding-right: 25px;
+  width: 100%;
+}
+
+@media (min-width: 1020px) {
+  .container {
+    max-width: 1684px;
+    padding-left: 122px;
+    padding-right: 122px;
+  }
+}
+
+.container.magazine-container {
+  margin: 0 auto;
+  max-width: 1260px;
+  padding: 0 20px;
+}
+
+@media (min-width: 620px) {
+  .container.magazine-container {
+    padding: 0 40px;
+  }
+}

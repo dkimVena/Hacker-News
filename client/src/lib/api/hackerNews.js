@@ -1,7 +1,12 @@
 import axios from 'axios';
 
-export const getArticles = () => {
-  return axios.get('/api/articles');
+export const getArticles = (page, type) => {
+  return axios.get('/api/articles', {
+    params: {
+      page,
+      type
+    }
+  });
 };
 
 export const getArticleDetail = articleId => {
