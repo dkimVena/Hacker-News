@@ -53,7 +53,7 @@
     border-radius: 50%;
     background-color: #fab131;
     position: fixed;
-    top: 1.5rem;
+    top: 1.2rem;
     right: 2.5rem;
     z-index: 2000;
     box-shadow: 0 1rem 3rem rgba(black, 0.1);
@@ -61,12 +61,16 @@
     cursor: pointer;
   }
 
+  &__button:hover {
+    background-color: #f7a81d;
+  }
+
   &__background {
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
     position: fixed;
-    top: 2rem;
+    top: 1.7rem;
     right: 3rem;
     background: #fab131;
     z-index: 1000;
@@ -164,13 +168,6 @@
     &::after {
       top: 0.5rem;
     }
-  }
-
-  &__button:hover &__icon::before {
-    top: -1rem;
-  }
-  &__button:hover &__icon::after {
-    top: 1rem;
   }
 
   &__checkbox:checked + &__button &__icon {
