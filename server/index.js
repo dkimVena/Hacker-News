@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
+const isProduction = process.env.NODE_ENV === 'production';
 
 const api = require('./src/routes');
 
@@ -13,17 +14,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 const router = express.Router();
 
-// Priority serve any static files.
-app.use(express.static(path.resolve(__dirname, '../../client/build')));
-
 app.use('/api', api);
 
-// All remaining requests return the React app, so it can handle routing.
-app.get('*', function(request, response) {
-  response.sendFile(
-    path.resolve(__dirname, '../../client/build', 'index.html')
-  );
-});
+if (isProduction) {
+  app.use(express.static(path.resolve(__dirname, '../../client/build')));
+
+  app.get('*', function(request, response) {
+    response.sendFile(
+      path.resolve(__dirname, '../../client/build', 'index.html')
+    );
+  });
+}
 
 app.use(router);
 app.set('port', process.env.PORT || 3001);

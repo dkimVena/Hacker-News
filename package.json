@@ -7,6 +7,8 @@
     "node": "10.16.0"
   },
   "scripts": {
+    "dev": "concurrently 'cd client && npm start' 'cd server && npm start'",
+    "clean": "concurrently 'cd client && rm -rf node_modules && npm i' 'cd server && rm -rf node_modules && npm i'",
     "start": "cross-env NODE_ENV=production node ./server/build/index.js",
     "heroku-prebuild": "cd server/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
     "heroku-postbuild": "cd client/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
@@ -28,5 +30,8 @@
   ],
   "dependencies": {
     "cross-env": "^5.2.0"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.1"
   }
 }
