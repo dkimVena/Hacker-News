@@ -2,6 +2,10 @@ const axios = require('axios');
 const grabity = require('grabity');
 const noImage =
   'https://smithssanitationsupply.ca/wp-content/uploads/2018/06/noimage-1.png';
+const articleUrl = 'https://hacker-news.firebaseio.com/v0/item/';
+const redirectUrl = 'https://news.ycombinator.com/item?id=';
+const noDescription = 'No Description';
+const pdfDescription = 'This article is a PDF file';
 
 module.exports.getArticles = async (req, res) => {
   const newArticlesUrl =
@@ -32,13 +36,11 @@ module.exports.getArticles = async (req, res) => {
 };
 
 module.exports.getArticleDetail = async (req, res) => {
-  const articleUrl = 'https://hacker-news.firebaseio.com/v0/item/';
-
   let { data } = await axios.get(`${articleUrl}${req.params.id}.json`);
-  if (data.url) {
+  if (data && data.url) {
     if (data.url.slice(-3) === 'pdf') {
       data.image = 'pdf';
-      data.description = 'This article is a PDF file';
+      data.description = pdfDescription;
     } else {
       try {
         let meta = await grabity.grabIt(data.url);
@@ -46,12 +48,21 @@ module.exports.getArticleDetail = async (req, res) => {
         data.description = meta.description;
       } catch (error) {
         data.image = noImage;
-        data.description = 'No Description';
+        data.description = noDescription;
       }
     }
   } else {
-    data.image = noImage;
-    data.description = 'No Description';
+    if (data) {
+      data.url = `${redirectUrl}${data.id}`;
+      data.image = noImage;
+      data.description = noDescription;
+    } else {
+      data = {};
+      data.url = '';
+      data.title = '';
+      data.image = noImage;
+      data.description = noDescription;
+    }
   }
 
   res.json(data);

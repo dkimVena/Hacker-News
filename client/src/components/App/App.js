@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
 import { connect } from 'react-redux';
-import { ArticleActions } from '../store/actionCreators';
-import ArticleHeader from './ArticleHeader';
-import SubNav from './SubNav';
-import ArticleList from './ArticleList';
-import { GET_ARTICLES } from '../store/modules/article';
+import { ArticleActions } from '../../store/actionCreators';
+import ArticleHeader from '../ArticleHeader';
+import SubNav from '../SubNav';
+import ArticleList from '../ArticleList';
+import { GET_ARTICLES } from '../../store/modules/article';
 
 import './App.scss';
 
@@ -28,9 +28,14 @@ const App = ({ article, loading }) => {
 
   const handleSetType = changedType => {
     ArticleActions.clear_articles();
-    setPage(0);
-    setHasMore(true);
-    setType(changedType);
+    if (page === 0 && changedType === type) {
+      ArticleActions.get_articles(page, type);
+      setHasMore(true);
+    } else {
+      setPage(0);
+      setHasMore(true);
+      setType(changedType);
+    }
   };
 
   return (

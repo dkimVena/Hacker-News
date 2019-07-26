@@ -7,6 +7,7 @@
     position: relative;
     width: calc(100% + 4rem);
     margin-bottom: 5rem;
+    font-size: 1.8rem;
 
     img {
       width: 100%;
@@ -26,32 +27,6 @@
     .featured-article {
       margin: 0 0 5rem 0;
       width: 100%;
-    }
-  }
-
-  .article-detail-title {
-    font-family: FuturaBT-Heavy, sans-serif;
-    font-size: inherit;
-    font-weight: 100;
-    font-size: 2.4rem;
-    letter-spacing: -0.03em;
-    line-height: 3.2rem;
-    margin: 1rem 0 2rem;
-  }
-
-  @media (min-width: 1440px) {
-    .article-detail-title {
-      font-size: 2.7rem;
-      line-height: 4rem;
-
-      a {
-        color: #272c2f;
-        text-decoration: none;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
     }
   }
 
@@ -89,15 +64,6 @@
     }
   }
 
-  .article-type {
-    font-family: FuturaBT-Heavy, sans-serif;
-    font-size: 1.4rem;
-    font-weight: 100;
-    letter-spacing: 2px;
-    opacity: 0.4;
-    text-transform: uppercase;
-  }
-
   .type-recent-articles {
     margin: 100px 0 0;
 
@@ -110,40 +76,6 @@
     .masonry-grid-column {
       padding-left: 3rem;
     }
-    //   &-article {
-    //     width: calc(50% - 1rem);
-    //     margin-bottom: 2rem;
-    //   }
-
-    //   @media (max-width: 620px) {
-    //     &-article {
-    //       width: 100%;
-    //     }
-    //   }
-
-    //   &-article img {
-    //     float: left;
-    //     width: 100%;
-    //   }
-
-    //   &-article a {
-    //     color: inherit;
-    //     text-decoration: none;
-    //   }
-
-    //   &-article a:hover .post-excerpt-title {
-    //     text-decoration: underline;
-    //   }
-
-    //   .recent-article-image-container {
-    //     display: block;
-    //     height: 0;
-    //     overflow: hidden;
-    //     padding-bottom: 60%;
-    //     position: relative;
-    //     width: 100%;
-    //   }
-    // }
   }
   .load-more-articles {
     background: -webkit-gradient(

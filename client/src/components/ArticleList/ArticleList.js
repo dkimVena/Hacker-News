@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from 'react';
-// import Masonry from 'react-masonry-component';
+
 import Masonry from 'react-masonry-css';
 import Article from '../Article';
 import { getArticleDetail } from '../../lib/api/hackerNews';
 import Spinner from '../Spinner';
-import useInfiniteScroll from '../useInfiniteScroll';
+import useInfiniteScroll from './useInfiniteScroll';
 
 import './ArticleList.scss';
-
-// const masonryOptions = {
-//   horizontalOrder: true,
-//   gutter: 20
-// };
 
 const breakpointColumnsObj = {
   default: 2,
@@ -35,16 +30,27 @@ const ArticleList = ({ articlesId, loadMore, hasMore }) => {
     .slice(1)
     .map(articleId => <Article key={articleId} articleId={articleId} />);
 
+  const handleError = () => {
+    setArticle({
+      ...article,
+      image:
+        'https://smithssanitationsupply.ca/wp-content/uploads/2018/06/noimage-1.png'
+    });
+  };
   if (article)
     return (
       <main className="article-container">
         <div className="featured-article">
           <a href={article.url}>
-            <img src={article.image} alt={'Article Background'} />
+            <img
+              src={article.image}
+              alt={'Article Background'}
+              onError={() => handleError()}
+            />
             <div className="article-detail featured-article-detail">
-              <span className="article-type">{article.type}</span>
-              <h3 className="article-detail-title">{article.title}</h3>
-              <p className="block-with-text">{article.description}</p>
+              <span className="text-type">{article.type}</span>
+              <h3 className="text-title">{article.title}</h3>
+              <p>{article.description}</p>
             </div>
           </a>
         </div>
@@ -59,9 +65,7 @@ const ArticleList = ({ articlesId, loadMore, hasMore }) => {
         </section>
         {hasMore && (
           <div className="load-more-articles">
-            <div href="#" className="button load-more-articles-button">
-              More posts
-            </div>
+            <div className="button load-more-articles-button">More posts</div>
           </div>
         )}
       </main>
