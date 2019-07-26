@@ -9,4 +9,27 @@
     -ms-flex-pack: center;
     justify-content: center;
   }
+
+  &-row-align-right {
+    justify-content: flex-end;
+  }
+  &-row-vertical-center {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media (min-width: 620px) {
+    &-hide-md {
+      display: none;
+    }
+  }
+
+  &-block-md {
+    display: none;
+  }
+  @media (min-width: 620px) {
+    &-block-md {
+      display: block;
+    }
+  }
 }

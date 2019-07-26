@@ -5,6 +5,7 @@ import { ArticleActions } from '../../store/actionCreators';
 import ArticleHeader from '../ArticleHeader';
 import SubNav from '../SubNav';
 import ArticleList from '../ArticleList';
+import Header from '../Header';
 import { GET_ARTICLES } from '../../store/modules/article';
 
 import './App.scss';
@@ -40,6 +41,7 @@ const App = ({ article, loading }) => {
 
   return (
     <div className="container magazine-container">
+      <Header />
       <ArticleHeader />
       <SubNav setType={handleSetType} currentType={type} />
       {article.articleList.length !== 0 && (

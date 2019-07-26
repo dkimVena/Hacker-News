@@ -73,7 +73,7 @@
       display: flex;
       width: auto;
     }
-    .masonry-grid-column {
+    .masonry-grid-column:not(:first-child) {
       padding-left: 3rem;
     }
   }
